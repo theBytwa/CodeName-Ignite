@@ -12,6 +12,8 @@ public class Controller : MonoBehaviour
     [SerializeField] Tile tile;
     public GameObject ControllerTransformChangeTo;
     private Rigidbody2D rb;
+    public GridManager gridManager;
+
 
 
     public bool objectIsPickedUp = false;
@@ -20,7 +22,9 @@ public class Controller : MonoBehaviour
     void Start()
     {
         //rb = gameObject.AddComponent<Rigidbody2D>();
-       
+        gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
+
+
     }
 
     // Update is called once per frame
@@ -35,6 +39,8 @@ public class Controller : MonoBehaviour
         {
             objectIsPickedUp = true;
             //objectIsPutDown = false;
+            gridManager.powderObjectIsPickedUp = false;
+            gridManager.ClickedPowderObject = null;
             
         }      
     }

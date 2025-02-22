@@ -14,7 +14,9 @@ public class Tile : MonoBehaviour
 
 
     public Controller controller;
-
+    public Powder powder;
+    public bool tileIsFull;
+    public GameObject CurrentPickedPowderObject;
     public GridManager gridManager;
 
 
@@ -22,11 +24,14 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+        tileIsFull = false;
         objectCanBePlaced = false;
         objectCantBePlaced = false;
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
 
         controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
+        
+        
         
 
 
@@ -58,8 +63,18 @@ public class Tile : MonoBehaviour
 
     private void OnMouseOver()
     {
-       
-            if (objectCanBePlaced && controller.objectIsPickedUp&& !objectCantBePlaced)
+        CurrentPickedPowderObject = gridManager.ClickedPowderObject;
+        if (gameObject.transform.position == GameObject.FindWithTag("Powder").transform.position || gameObject.transform.position == GameObject.FindWithTag("Controller").transform.position)
+        {
+            tileIsFull = true;
+        }
+        else
+        {
+            tileIsFull = false;
+
+        }
+
+        if (objectCanBePlaced && controller.objectIsPickedUp&& !objectCantBePlaced)
             {
                 HoverOverHighlightPositive.SetActive(true);
             }
@@ -83,7 +98,8 @@ public class Tile : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (controller.objectIsPickedUp && objectCanBePlaced)
+        
+        if (controller.objectIsPickedUp && objectCanBePlaced && !tileIsFull)
         {
             Debug.Log("Clicked after controller");
 
@@ -91,6 +107,15 @@ public class Tile : MonoBehaviour
             controller.changePositionToSelectedTile();
             objectCanBePlaced = false;
 
+        }
+
+        if (gridManager.powderObjectIsPickedUp && objectCanBePlaced && !tileIsFull)
+        {
+            Debug.Log("Clicked after Powder");
+
+            gridManager.PowderControllerTransformChangeTo = gameObject;
+            gridManager.changePowderObjectPositionToSelectedTile();
+            objectCanBePlaced = false;
         }
         //Debug.Log(gameObject.name);
 
@@ -104,14 +129,14 @@ public class Tile : MonoBehaviour
         {
             
             objectCanBePlaced = true;
-           /* if (other.tag == "Water")
-            {
+        
 
-
-                objectCantBePlaced = true;
-
-            }*/
-
+        } 
+        if (other.tag == "Powder")
+        {           
+            objectCanBePlaced = true;
+           
+        
 
         }
        
@@ -119,9 +144,9 @@ public class Tile : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "Controller")
-        {
-            objectCanBePlaced = false;
+        if (other.gameObject.name == "Controller" && other.gameObject.tag == "Powder")
+        { 
+            objectCanBePlaced = true;
             HoverOverHighlightPositive.SetActive(false);
 
         }

@@ -276,6 +276,9 @@ MonoBehaviour:
   objectCanBePlaced: 1
   objectCantBePlaced: 0
   controller: {fileID: 0}
+  powder: {fileID: 8617663804534424234, guid: 1574302b64787c848a0709abfe0552f7, type: 3}
+  tileIsFull: 0
+  CurrentPickedPowderObject: {fileID: 0}
   gridManager: {fileID: 0}
 --- !u!61 &1061874715777465170
 BoxCollider2D:

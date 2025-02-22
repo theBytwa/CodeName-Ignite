@@ -15,10 +15,25 @@ public class GridManager : MonoBehaviour
     private int tileOrder = 0;
     public GameObject Water;
     public GameObject FinishBox;
-    
+    public GameObject Powder;
+    public GameObject Controller1StartTile;
+    public Controller controller;
+    public GameObject ClickedPowderObject;
+    public bool powderObjectIsPickedUp;
+    public GameObject PowderControllerTransformChangeTo;
+
+
+    private void Update()
+    {
+    }
 
     private void Start()
     {
+        powderObjectIsPickedUp = false;
+        StartCoroutine(PlaceControllerBasedOnLevel());
+        StartCoroutine(PlacePowderBasedOnLevel());
+        
+
         GenerateGrid();
         changeColourSwitch();
     }
@@ -35,9 +50,16 @@ public class GridManager : MonoBehaviour
                 spawnedTile.name = $"Tile {tileOrder}";
                 PlaceWaterBasedOnLevel();
 
+
             }
         }
         Grid.transform.position = GridReplacamentPlace.transform.position;
+    }
+    public void changePowderObjectPositionToSelectedTile()
+    {
+        ClickedPowderObject.transform.position = PowderControllerTransformChangeTo.transform.position;
+        PowderControllerTransformChangeTo = null;
+        powderObjectIsPickedUp = false;
     }
     void changeColourSwitch()
     {
@@ -56,20 +78,67 @@ public class GridManager : MonoBehaviour
     void PlaceWaterBasedOnLevel()
     {
         tileOrder = tileOrder + 1;
+       // Debug.Log(tileOrder);
 
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             if (tileOrder == 8)
             {
-                Debug.Log("sgmkljfd;anbkjsgnmjbjlksdmgf");
+                
 
                 var spawnedWater = Instantiate(Water);
                 spawnedWater.transform.position = GameObject.Find("Tile 7").transform.position;
                 spawnedWater.transform.parent = Grid.transform;
+               
+            }
+        }
+    }
 
+    IEnumerator PlacePowderBasedOnLevel()
+    {
+        yield return new WaitForEndOfFrame();
+
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            if (tileOrder == 25)
+            {
+                var spawnedPowder = Instantiate(Powder);
+                spawnedPowder.transform.position = GameObject.Find("Tile 24").transform.position;
+                
+                
 
             }
         }
     }
+
+            IEnumerator PlaceControllerBasedOnLevel() 
+    {
+        controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
+
+        yield return new WaitForEndOfFrame();
+        SetStarterTilesBasedOnLevel();
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        { 
+            if (tileOrder == 25)
+            {
+                controller.ControllerTransformChangeTo = Controller1StartTile;
+
+                controller.changePositionToSelectedTile();
+            }
+        }
+
+    }
+
+
+    void SetStarterTilesBasedOnLevel()
+    {
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            Controller1StartTile = GameObject.Find("Tile 18");
+        }
+    }
+
+    
+
 
 }
