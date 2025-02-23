@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140302e68dcff8448b6b673281227888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tile: {fileID: 0}
+  gridManager: {fileID: 0}
+  PowderControllerTransformChangeTo: {fileID: 0}
+  powderObjectIsPickedUp: 0
 --- !u!61 &-886988414897437170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,7 +119,7 @@ BoxCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 1
+  m_LayerOverridePriority: 2
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295

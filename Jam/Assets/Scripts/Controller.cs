@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,6 +15,7 @@ public class Controller : MonoBehaviour
     public GameObject ControllerTransformChangeTo;
     private Rigidbody2D rb;
     public GridManager gridManager;
+    
 
 
 
@@ -23,6 +26,7 @@ public class Controller : MonoBehaviour
     {
         //rb = gameObject.AddComponent<Rigidbody2D>();
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
+        //tile = GameObject.FindGameObjectsWithTag("Tile").
 
 
     }
@@ -40,8 +44,12 @@ public class Controller : MonoBehaviour
             objectIsPickedUp = true;
             //objectIsPutDown = false;
             gridManager.powderObjectIsPickedUp = false;
-            gridManager.ClickedPowderObject = null;
+            //gridManager.ClickedPowderObject = null;
+            //gridManager.test = true;
+            gridManager.playIsClickedSwitchTimer();
             
+            //tile.GetComponent<Collider2D>().enabled = true;
+
         }      
     }
     public void changePositionToSelectedTile()
@@ -49,10 +57,48 @@ public class Controller : MonoBehaviour
         gameObject.transform.position = ControllerTransformChangeTo.transform.position;
         ControllerTransformChangeTo = null;
         objectIsPickedUp = false;
-    }
-    
-   
+        gridManager.test = false;
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Powder")
+        {
+            gridManager.powderObjectCanBeMoved = true;
+            other.gameObject.GetComponent<Collider2D>().enabled = true;
+
+        }
+        if (other.gameObject.tag == "Tile")
+        {
+            other.GetComponent<Tile>().objectCanBePlaced = true;
+            other.GetComponent<Tile>().objectCollider2D.enabled = true;
+            Debug.Log("collision");
+            
+        }
+
+
+
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Powder")
+        {
+            gridManager.powderObjectCanBeMoved = true;
+        }
+        if (other.gameObject.tag == "Tile")
+        {
+            other.GetComponent<Tile>().objectCanBePlaced = true;
+            other.GetComponent<Tile>().objectCollider2D.enabled = true;
+
+        }
+    }
+  
+    public void FindAllPowdersAndChangeTheBlocks()
+    {
+        //GameObject.FindWithTag("Powder").GetComponent<Powder>().testBool = true;
+        gridManager.powderObjectCanBeMoved = true;
+    }
 }
 
 

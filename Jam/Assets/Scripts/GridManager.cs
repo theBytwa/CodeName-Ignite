@@ -21,14 +21,29 @@ public class GridManager : MonoBehaviour
     public GameObject ClickedPowderObject;
     public bool powderObjectIsPickedUp;
     public GameObject PowderControllerTransformChangeTo;
+    public bool powderObjectCanBeMoved;
+    public bool test;
+    public bool isClicked;
 
+    public IEnumerator isClickedSwitchTimer()
+    {
+        isClicked = true;
+        yield return new WaitForEndOfFrame();
+        isClicked = false;
 
+    }
+    public void playIsClickedSwitchTimer()
+    {
+        StartCoroutine(isClickedSwitchTimer());
+    }
     private void Update()
     {
+        
     }
 
     private void Start()
     {
+        test = false;
         powderObjectIsPickedUp = false;
         StartCoroutine(PlaceControllerBasedOnLevel());
         StartCoroutine(PlacePowderBasedOnLevel());
@@ -55,11 +70,15 @@ public class GridManager : MonoBehaviour
         }
         Grid.transform.position = GridReplacamentPlace.transform.position;
     }
+
+   
     public void changePowderObjectPositionToSelectedTile()
     {
         ClickedPowderObject.transform.position = PowderControllerTransformChangeTo.transform.position;
         PowderControllerTransformChangeTo = null;
         powderObjectIsPickedUp = false;
+        //test = false;
+
     }
     void changeColourSwitch()
     {
@@ -134,7 +153,7 @@ public class GridManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            Controller1StartTile = GameObject.Find("Tile 18");
+            Controller1StartTile = GameObject.Find("Tile 17");
         }
     }
 

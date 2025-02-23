@@ -375,6 +375,8 @@ MonoBehaviour:
   ClickedPowderObject: {fileID: 0}
   powderObjectIsPickedUp: 0
   PowderControllerTransformChangeTo: {fileID: 0}
+  powderObjectCanBeMoved: 0
+  test: 0
 --- !u!4 &1649248088
 Transform:
   m_ObjectHideFlags: 0
@@ -395,7 +397,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1358081650}
   - {fileID: 1649248088}
   - {fileID: 97415761}
   - {fileID: 1466975290}
+  - {fileID: 1358081650}

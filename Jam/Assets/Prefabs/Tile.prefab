@@ -278,8 +278,11 @@ MonoBehaviour:
   controller: {fileID: 0}
   powder: {fileID: 8617663804534424234, guid: 1574302b64787c848a0709abfe0552f7, type: 3}
   tileIsFull: 0
+  mouseIsOnTile: 0
+  controllerIsCollideing: 0
   CurrentPickedPowderObject: {fileID: 0}
   gridManager: {fileID: 0}
+  objectCollider2D: {fileID: 1061874715777465170}
 --- !u!61 &1061874715777465170
 BoxCollider2D:
   m_ObjectHideFlags: 0

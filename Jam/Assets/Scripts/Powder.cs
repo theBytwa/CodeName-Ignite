@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class Powder : MonoBehaviour
@@ -10,6 +12,8 @@ public class Powder : MonoBehaviour
     private Rigidbody2D rb;
     public bool powderObjectIsPickedUp = false;
     Controller controller;
+    //public bool testBool = false;
+    //public bool isClicked;
 
     private void OnMouseDown()
     {
@@ -17,25 +21,34 @@ public class Powder : MonoBehaviour
 
         if (gridManager.powderObjectIsPickedUp == false)
         {
+            controller.FindAllPowdersAndChangeTheBlocks();
             gridManager.powderObjectIsPickedUp = true;
             gridManager.ClickedPowderObject = gameObject;
             controller.objectIsPickedUp = false;
+            //gridManager.test = true;
             //objectIsPutDown = false;
+            gridManager.playIsClickedSwitchTimer();
+            //ReachAllTheFingPrefabsAndTurnThemOn();
+            
 
         }
     }
     private void Start()
     {
+        //isClicked = false;
         controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
 
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
         gridManager.powderObjectIsPickedUp = false;
 
     }
-   /* public void changePositionToSelectedTile()
+
+    void ReachAllTheFingPrefabsAndTurnThemOn()
     {
-        gameObject.transform.position = PowderControllerTransformChangeTo.transform.position;
-        gridManager.PowderControllerTransformChangeTo = null;
-        gridManager.powderObjectIsPickedUp = false;
-    }*/
+        
+    }
+
+
+
+
 }
