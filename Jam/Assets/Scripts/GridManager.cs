@@ -54,29 +54,71 @@ public class GridManager : MonoBehaviour
     }
     void GenerateGrid()
     {
-        for (int x = 0; x < width; x++)
+        if (SceneManager.GetActiveScene().name == "SampleScene") 
         {
-            for (int y = 0; y < height; y++ )
+            for (int x = 0; x < width; x++)
             {
+                for (int y = 0; y < height; y++)
+                {
 
-                var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
-                changeColourSwitch();
-                spawnedTile.transform.parent = Grid.transform;
-                spawnedTile.name = $"Tile {tileOrder}";
-                PlaceWaterBasedOnLevel();
+                    var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+                    changeColourSwitch();
+                    spawnedTile.transform.parent = Grid.transform;
+                    spawnedTile.name = $"Tile {tileOrder}";
+                    PlaceWaterBasedOnLevel();
 
 
+                }
             }
+            Grid.transform.position = GridReplacamentPlace.transform.position;
         }
-        Grid.transform.position = GridReplacamentPlace.transform.position;
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+
+                    var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+                    changeColourSwitch();
+                    spawnedTile.transform.parent = Grid.transform;
+                    spawnedTile.name = $"Tile {tileOrder}";
+                    PlaceWaterBasedOnLevel();
+
+
+                }
+            }
+            Grid.transform.position = GridReplacamentPlace.transform.position;
+        }
+        if (SceneManager.GetActiveScene().name == "Level3")
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+
+                    var spawnedTile = Instantiate(tilePrefab, new Vector3(x, y), Quaternion.identity);
+                    changeColourSwitch();
+                    spawnedTile.transform.parent = Grid.transform;
+                    spawnedTile.name = $"Tile {tileOrder}";
+                    PlaceWaterBasedOnLevel();
+
+
+                }
+            }
+            Grid.transform.position = GridReplacamentPlace.transform.position;
+        }
     }
 
    
     public void changePowderObjectPositionToSelectedTile()
     {
         ClickedPowderObject.transform.position = PowderControllerTransformChangeTo.transform.position;
+        ClickedPowderObject.GetComponent<Powder>().powderObjectIsPickedUp = false;
+
         PowderControllerTransformChangeTo = null;
         powderObjectIsPickedUp = false;
+        
         //test = false;
 
     }
@@ -119,14 +161,14 @@ public class GridManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            if (tileOrder == 25)
-            {
+            /*if (tileOrder == 15)
+            {*/
                 var spawnedPowder = Instantiate(Powder);
-                spawnedPowder.transform.position = GameObject.Find("Tile 24").transform.position;
+                spawnedPowder.transform.position = GameObject.Find("Tile 14").transform.position;
                 
                 
 
-            }
+           /* }*/
         }
     }
 
@@ -153,7 +195,7 @@ public class GridManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            Controller1StartTile = GameObject.Find("Tile 17");
+            Controller1StartTile = GameObject.Find("Tile 21");
         }
     }
 

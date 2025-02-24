@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -144,12 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d790db91de655074792bc67a4a0fd266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UP: {fileID: 0}
-  Down: {fileID: 0}
-  Right: {fileID: 0}
-  Left: {fileID: 0}
   tile: {fileID: 2641792829043081125, guid: e7fa650781fbf8d4fae41e0dc491bc36, type: 3}
   ControllerTransformChangeTo: {fileID: 0}
+  gridManager: {fileID: 0}
+  powderObjectCanComeNear: 0
   objectIsPickedUp: 0
 --- !u!50 &6775321995435437411
 Rigidbody2D:

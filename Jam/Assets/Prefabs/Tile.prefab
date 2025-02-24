@@ -283,6 +283,7 @@ MonoBehaviour:
   CurrentPickedPowderObject: {fileID: 0}
   gridManager: {fileID: 0}
   objectCollider2D: {fileID: 1061874715777465170}
+  powderCanBePlacedOn: 0
 --- !u!61 &1061874715777465170
 BoxCollider2D:
   m_ObjectHideFlags: 0

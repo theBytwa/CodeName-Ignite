@@ -19,7 +19,7 @@ public class Powder : MonoBehaviour
     {
         Debug.Log("Working!");
 
-        if (gridManager.powderObjectIsPickedUp == false)
+        if (gridManager.powderObjectIsPickedUp == false && controller.powderObjectCanComeNear)
         {
             controller.FindAllPowdersAndChangeTheBlocks();
             gridManager.powderObjectIsPickedUp = true;
@@ -29,7 +29,8 @@ public class Powder : MonoBehaviour
             //objectIsPutDown = false;
             gridManager.playIsClickedSwitchTimer();
             //ReachAllTheFingPrefabsAndTurnThemOn();
-            
+            powderObjectIsPickedUp = true;
+
 
         }
     }
@@ -40,7 +41,7 @@ public class Powder : MonoBehaviour
 
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
         gridManager.powderObjectIsPickedUp = false;
-
+        powderObjectIsPickedUp = false;
     }
 
     void ReachAllTheFingPrefabsAndTurnThemOn()

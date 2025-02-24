@@ -22,12 +22,14 @@ public class Tile : MonoBehaviour
     public GameObject CurrentPickedPowderObject;
     public GridManager gridManager;
     public Collider2D objectCollider2D;
+    public bool powderCanBePlacedOn;
 
 
 
 
     void Start()
     {
+        powderCanBePlacedOn = true;
         mouseIsOnTile = false;
         controllerIsCollideing = false;
 
@@ -96,15 +98,26 @@ public class Tile : MonoBehaviour
             //Debug.Log("collider enabled");
 
         }
-       
-       
 
-        if ( gameObject.transform.position == GameObject.FindWithTag("Controller").transform.position || gameObject.transform.position == GameObject.FindWithTag("Powder").transform.position)
+
+
+        /* if ( gameObject.transform.position == GameObject.FindWithTag("Controller").transform.position || gameObject.transform.position == GameObject.FindWithTag("Powder").transform.position)
+         {
+             gameObject.GetComponent<Collider2D>().enabled = false;
+
+         }*/
+        StartCoroutine(disableColliderDependingOnCollision2Timer());
+        
+    }
+
+    IEnumerator disableColliderDependingOnCollision2Timer()
+    {
+        yield return new WaitForEndOfFrame();
+        if (gameObject.transform.position == GameObject.FindWithTag("Controller").transform.position || gameObject.transform.position == GameObject.FindWithTag("Powder").transform.position)
         {
             gameObject.GetComponent<Collider2D>().enabled = false;
 
         }
-        
     }
     public void callControllerGameObkect()
     {
@@ -160,7 +173,7 @@ public class Tile : MonoBehaviour
 
         }
 
-        if (gridManager.powderObjectIsPickedUp && objectCanBePlaced && !tileIsFull && gridManager.powderObjectCanBeMoved)
+        if (gridManager.powderObjectIsPickedUp && objectCanBePlaced && !tileIsFull && gridManager.powderObjectCanBeMoved && powderCanBePlacedOn)
         {
             objectCollider2D.enabled = true;
 
@@ -169,6 +182,8 @@ public class Tile : MonoBehaviour
             gridManager.PowderControllerTransformChangeTo = gameObject;
             gridManager.changePowderObjectPositionToSelectedTile();
             gameObject.GetComponent<Collider2D>().enabled = true;
+            powderCanBePlacedOn = true;
+
 
             //objectCanBePlaced = false;
         }
