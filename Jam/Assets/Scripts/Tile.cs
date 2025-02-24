@@ -183,15 +183,15 @@ public class Tile : MonoBehaviour
             gridManager.changePowderObjectPositionToSelectedTile();
             gameObject.GetComponent<Collider2D>().enabled = true;
             powderCanBePlacedOn = true;
-<<<<<<< HEAD
-            powderObjectLastBoolean = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
+   //         powderObjectLastBoolean = true;
+//<<<<<<< HEAD
             
 
-=======
->>>>>>> parent of 285af82 (safety push)
-=======
->>>>>>> parent of 6bea268 (commit before reverting)
+//=======
+//>>>>>>> parent of 285af82 (safety push)
+//=======
+//>>>>>>> parent of 6bea268 (commit before reverting)
 
 
             //objectCanBePlaced = false;
@@ -227,7 +227,7 @@ public class Tile : MonoBehaviour
             objectCanBePlaced = true;
 
         }
-<<<<<<< HEAD
+//<<<<<<< HEAD
         if (other.tag == "Powder")
         {
             //powderObjectLastBoolean = false;
@@ -244,7 +244,7 @@ public class Tile : MonoBehaviour
             powderObjectLastBoolean2 = false;
 
         }*/
->>>>>>> parent of 6bea268 (commit before reverting)
+//>>>>>>> parent of 6bea268 (commit before reverting)
     }
 
 
@@ -268,14 +268,14 @@ public class Tile : MonoBehaviour
             objectCanBePlaced = true;
 
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
         if (other.gameObject.tag == "Controller")
         {
-            ttttttttt = true;
+   //         ttttttttt = true;
         }
-=======
->>>>>>> parent of 6bea268 (commit before reverting)
+//=======
+//>>>>>>> parent of 6bea268 (commit before reverting)
         if (other.tag == "Powder")
         {
             //powderObjectLastBoolean = true;
@@ -286,7 +286,7 @@ public class Tile : MonoBehaviour
             powderObjectLastBoolean2 = true;
 
         }*/
-=======
->>>>>>> parent of 285af82 (safety push)
+//=======
+//>>>>>>> parent of 285af82 (safety push)
     }
 }

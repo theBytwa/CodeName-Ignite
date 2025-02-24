@@ -82,15 +82,15 @@ public class Controller : MonoBehaviour
             Debug.Log("collision");
             Debug.Log(other);
             other.GetComponent<Tile>().powderCanBePlacedOn = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
             //other.GetComponent<Tile>().powderObjectLastBoolean = true;
-=======
-            other.GetComponent<Tile>().powderObjectLastBoolean = true;
->>>>>>> parent of 6bea268 (commit before reverting)
+//=======
+       //     other.GetComponent<Tile>().powderObjectLastBoolean = true;
+//>>>>>>> parent of 6bea268 (commit before reverting)
 
-=======
->>>>>>> parent of 285af82 (safety push)
+//=======
+//>>>>>>> parent of 285af82 (safety push)
 
         }
 
@@ -109,39 +109,39 @@ public class Controller : MonoBehaviour
         {
             other.GetComponent<Tile>().objectCanBePlaced = true;
             other.GetComponent<Tile>().objectCollider2D.enabled = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
 
            // other.GetComponent<Tile>().powderObjectLastBoolean = false;
-=======
-            other.GetComponent<Tile>().powderObjectLastBoolean = false;
->>>>>>> parent of 6bea268 (commit before reverting)
+//=======
+        //    other.GetComponent<Tile>().powderObjectLastBoolean = false;
+//>>>>>>> parent of 6bea268 (commit before reverting)
 
 
-=======
->>>>>>> parent of 285af82 (safety push)
+//=======
+//>>>>>>> parent of 285af82 (safety push)
             //other.GetComponent<Tile>().powderCanBePlacedOn = false;
 
 
 
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
         if (other.gameObject.tag == "Tile")
         {
-            other.GetComponent<Tile>().ttttttttt = false;
+    //        other.GetComponent<Tile>().ttttttttt = false;
 
 
         }
-=======
->>>>>>> parent of 285af82 (safety push)
-=======
+//=======
+//>>>>>>> parent of 285af82 (safety push)
+//=======
         /*  if (other.gameObject.tag == "Tile")
           {
               test = false;
 
           }*/
->>>>>>> parent of 6bea268 (commit before reverting)
+//>>>>>>> parent of 6bea268 (commit before reverting)
     }
   
     public void FindAllPowdersAndChangeTheBlocks()
