@@ -84,6 +84,7 @@ public class Controller : MonoBehaviour
             other.GetComponent<Tile>().powderCanBePlacedOn = true;
 <<<<<<< HEAD
             //other.GetComponent<Tile>().powderObjectLastBoolean = true;
+            other.GetComponent<Tile>().powderObjectLastBoolean = true;
 
 =======
 >>>>>>> parent of 285af82 (safety push)
@@ -108,6 +109,7 @@ public class Controller : MonoBehaviour
 <<<<<<< HEAD
 
            // other.GetComponent<Tile>().powderObjectLastBoolean = false;
+            other.GetComponent<Tile>().powderObjectLastBoolean = false;
 
 
 =======
@@ -126,6 +128,11 @@ public class Controller : MonoBehaviour
         }
 =======
 >>>>>>> parent of 285af82 (safety push)
+        /*  if (other.gameObject.tag == "Tile")
+          {
+              test = false;
+
+          }*/
     }
   
     public void FindAllPowdersAndChangeTheBlocks()
