@@ -185,10 +185,13 @@ public class Tile : MonoBehaviour
             powderCanBePlacedOn = true;
 <<<<<<< HEAD
             powderObjectLastBoolean = true;
+<<<<<<< HEAD
             
 
 =======
 >>>>>>> parent of 285af82 (safety push)
+=======
+>>>>>>> parent of 6bea268 (commit before reverting)
 
 
             //objectCanBePlaced = false;
@@ -232,13 +235,16 @@ public class Tile : MonoBehaviour
         }
        /* if (controller.test == false)
         {
+<<<<<<< HEAD
             ttttttttt = false;
         }
 =======
 >>>>>>> parent of 285af82 (safety push)
+=======
             powderObjectLastBoolean2 = false;
 
         }*/
+>>>>>>> parent of 6bea268 (commit before reverting)
     }
 
 
@@ -263,10 +269,13 @@ public class Tile : MonoBehaviour
 
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (other.gameObject.tag == "Controller")
         {
             ttttttttt = true;
         }
+=======
+>>>>>>> parent of 6bea268 (commit before reverting)
         if (other.tag == "Powder")
         {
             //powderObjectLastBoolean = true;

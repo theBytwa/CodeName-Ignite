@@ -286,10 +286,13 @@ MonoBehaviour:
   powderCanBePlacedOn: 0
 <<<<<<< HEAD
   powderObjectLastBoolean: 0
+<<<<<<< HEAD
   powderObjectLastBoolean2: 0
   ttttttttt: 0
 =======
 >>>>>>> parent of 285af82 (safety push)
+=======
+>>>>>>> parent of 6bea268 (commit before reverting)
 --- !u!61 &1061874715777465170
 BoxCollider2D:
   m_ObjectHideFlags: 0
