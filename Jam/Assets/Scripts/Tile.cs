@@ -121,6 +121,8 @@ public class Tile : MonoBehaviour
         if (gameObject.transform.position == GameObject.FindWithTag("Controller").transform.position || gameObject.transform.position == GameObject.FindWithTag("Powder").transform.position)
         {
             gameObject.GetComponent<Collider2D>().enabled = false;
+            ttttttttt = true;
+
 
         }
     }
@@ -135,6 +137,10 @@ public class Tile : MonoBehaviour
     {
         
         HoverOverHighlightNegative.SetActive(true);
+        if (ttttttttt == true &&gameObject.transform.position != GameObject.FindWithTag("Powder").transform.position)
+        {
+            powderObjectLastBoolean = true;
+        }
 
         mouseIsOnTile = true;
         CurrentPickedPowderObject = gridManager.ClickedPowderObject;
@@ -161,6 +167,8 @@ public class Tile : MonoBehaviour
             gameObject.GetComponent<Collider2D>().enabled = true;
 
         }
+       
+
         //gameObject.GetComponent<Collider2D>().enabled = false;
 
         if (controller.objectIsPickedUp && !tileIsFull)
@@ -171,7 +179,8 @@ public class Tile : MonoBehaviour
 
             controller.ControllerTransformChangeTo = gameObject;
             controller.changePositionToSelectedTile();
-           
+            powderObjectLastBoolean = true;
+
 
 
             //objectCanBePlaced = false;
@@ -181,14 +190,17 @@ public class Tile : MonoBehaviour
         if (gridManager.powderObjectIsPickedUp /*&& objectCanBePlaced*/ && !tileIsFull && gridManager.powderObjectCanBeMoved && powderObjectLastBoolean)
         {
             objectCollider2D.enabled = true;
-
+            ttttttttt = true;
             Debug.Log("Clicked after Powder");
 
             gridManager.PowderControllerTransformChangeTo = gameObject;
-            gridManager.changePowderObjectPositionToSelectedTile();
             gameObject.GetComponent<Collider2D>().enabled = true;
+
+            gridManager.changePowderObjectPositionToSelectedTile();
             powderCanBePlacedOn = true;
             powderObjectLastBoolean = true;
+            
+
 
 
             //objectCanBePlaced = false;
@@ -230,13 +242,17 @@ public class Tile : MonoBehaviour
             //powderObjectLastBoolean = false;
 
         }
-       /* if (controller.test == false)
+        /* if (controller.test == false)
+         {
+             powderObjectLastBoolean2 = false;
+
+         }*/
+        if (other.gameObject.tag == "Controller")
         {
-            powderObjectLastBoolean2 = false;
-
-        }*/
+            ttttttttt = false;
+        }
     }
-
+    public bool ttttttttt;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -257,6 +273,10 @@ public class Tile : MonoBehaviour
         {
             objectCanBePlaced = true;
 
+        }
+        if (other.gameObject.tag == "Controller")
+        {
+            ttttttttt = true;
         }
         if (other.tag == "Powder")
         {

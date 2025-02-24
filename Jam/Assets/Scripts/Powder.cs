@@ -46,8 +46,18 @@ public class Powder : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Tile" && other.gameObject.tag == "Controller")
+        if (other.gameObject.tag == "Tile" )
         {
+            other.gameObject.GetComponent<Tile>().powderObjectLastBoolean = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Tile")
+        {
+            other.gameObject.GetComponent<Tile>().powderObjectLastBoolean = false;
+            other.gameObject.GetComponent<Tile>().ttttttttt = true;
+
 
         }
     }

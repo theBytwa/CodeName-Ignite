@@ -285,6 +285,8 @@ MonoBehaviour:
   objectCollider2D: {fileID: 1061874715777465170}
   powderCanBePlacedOn: 0
   powderObjectLastBoolean: 0
+  powderObjectLastBoolean2: 0
+  ttttttttt: 0
 --- !u!61 &1061874715777465170
 BoxCollider2D:
   m_ObjectHideFlags: 0

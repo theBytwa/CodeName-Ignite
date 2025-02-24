@@ -84,7 +84,7 @@ public class Controller : MonoBehaviour
             Debug.Log("collision");
             Debug.Log(other);
             other.GetComponent<Tile>().powderCanBePlacedOn = true;
-            other.GetComponent<Tile>().powderObjectLastBoolean = true;
+            //other.GetComponent<Tile>().powderObjectLastBoolean = true;
 
 
         }
@@ -110,7 +110,8 @@ public class Controller : MonoBehaviour
         {
             other.GetComponent<Tile>().objectCanBePlaced = true;
             other.GetComponent<Tile>().objectCollider2D.enabled = true;
-            other.GetComponent<Tile>().powderObjectLastBoolean = false;
+
+           // other.GetComponent<Tile>().powderObjectLastBoolean = false;
 
 
             //other.GetComponent<Tile>().powderCanBePlacedOn = false;
@@ -118,11 +119,12 @@ public class Controller : MonoBehaviour
 
 
         }
-        /*  if (other.gameObject.tag == "Tile")
-          {
-              test = false;
+        if (other.gameObject.tag == "Tile")
+        {
+            other.GetComponent<Tile>().ttttttttt = false;
 
-          }*/
+
+        }
     }
   
     public void FindAllPowdersAndChangeTheBlocks()
