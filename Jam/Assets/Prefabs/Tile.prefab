@@ -284,9 +284,12 @@ MonoBehaviour:
   gridManager: {fileID: 0}
   objectCollider2D: {fileID: 1061874715777465170}
   powderCanBePlacedOn: 0
+<<<<<<< HEAD
   powderObjectLastBoolean: 0
   powderObjectLastBoolean2: 0
   ttttttttt: 0
+=======
+>>>>>>> parent of 285af82 (safety push)
 --- !u!61 &1061874715777465170
 BoxCollider2D:
   m_ObjectHideFlags: 0

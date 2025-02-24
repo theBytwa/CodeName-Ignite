@@ -44,6 +44,7 @@ public class Powder : MonoBehaviour
         powderObjectIsPickedUp = false;
     }
 
+<<<<<<< HEAD
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Tile" )
@@ -61,6 +62,8 @@ public class Powder : MonoBehaviour
 
         }
     }
+=======
+>>>>>>> parent of 285af82 (safety push)
     void ReachAllTheFingPrefabsAndTurnThemOn()
     {
         

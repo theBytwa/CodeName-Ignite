@@ -16,7 +16,6 @@ public class Controller : MonoBehaviour
     private Rigidbody2D rb;
     public GridManager gridManager;
     public bool powderObjectCanComeNear;
-    public bool test;
 
 
 
@@ -29,7 +28,6 @@ public class Controller : MonoBehaviour
     {
         //rb = gameObject.AddComponent<Rigidbody2D>();
         powderObjectCanComeNear = false;
-       
 
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
         //tile = GameObject.FindGameObjectsWithTag("Tile").
@@ -75,7 +73,7 @@ public class Controller : MonoBehaviour
             other.gameObject.GetComponent<Collider2D>().enabled = true;
             powderObjectCanComeNear = true;
 
-            
+
         }
         if (other.gameObject.tag == "Tile")
         {
@@ -84,16 +82,13 @@ public class Controller : MonoBehaviour
             Debug.Log("collision");
             Debug.Log(other);
             other.GetComponent<Tile>().powderCanBePlacedOn = true;
+<<<<<<< HEAD
             //other.GetComponent<Tile>().powderObjectLastBoolean = true;
 
+=======
+>>>>>>> parent of 285af82 (safety push)
 
         }
-        /* if (other.gameObject.tag == "Tile")
-         {
-             test = true;
-
-
-         }*/
 
 
 
@@ -110,21 +105,27 @@ public class Controller : MonoBehaviour
         {
             other.GetComponent<Tile>().objectCanBePlaced = true;
             other.GetComponent<Tile>().objectCollider2D.enabled = true;
+<<<<<<< HEAD
 
            // other.GetComponent<Tile>().powderObjectLastBoolean = false;
 
 
+=======
+>>>>>>> parent of 285af82 (safety push)
             //other.GetComponent<Tile>().powderCanBePlacedOn = false;
 
 
 
         }
+<<<<<<< HEAD
         if (other.gameObject.tag == "Tile")
         {
             other.GetComponent<Tile>().ttttttttt = false;
 
 
         }
+=======
+>>>>>>> parent of 285af82 (safety push)
     }
   
     public void FindAllPowdersAndChangeTheBlocks()
