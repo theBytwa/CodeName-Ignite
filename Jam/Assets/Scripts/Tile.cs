@@ -49,7 +49,7 @@ public class Tile : MonoBehaviour
     private void Update()
     {
         disableColliderDependingOnCollision2();
-        // StartCoroutine(timerForPowderPositionCheck());
+         //StartCoroutine(TimerdisableColliderDependingOnCollision2());
     }
     IEnumerator timerForPowderPositionCheck()
     {
@@ -71,6 +71,11 @@ public class Tile : MonoBehaviour
             objectCanBePlaced = true;
             Debug.Log("Amina Koyim");
         }
+    }
+    IEnumerator TimerdisableColliderDependingOnCollision2()
+    {
+        yield return new WaitForEndOfFrame();
+        disableColliderDependingOnCollision2();
     }
     void disableColliderDependingOnCollision2()
     {
@@ -173,7 +178,7 @@ public class Tile : MonoBehaviour
 
         }
 
-        if (gridManager.powderObjectIsPickedUp && objectCanBePlaced && !tileIsFull && gridManager.powderObjectCanBeMoved && powderCanBePlacedOn)
+        if (gridManager.powderObjectIsPickedUp /*&& objectCanBePlaced*/ && !tileIsFull && gridManager.powderObjectCanBeMoved && powderObjectLastBoolean)
         {
             objectCollider2D.enabled = true;
 
@@ -183,6 +188,7 @@ public class Tile : MonoBehaviour
             gridManager.changePowderObjectPositionToSelectedTile();
             gameObject.GetComponent<Collider2D>().enabled = true;
             powderCanBePlacedOn = true;
+            powderObjectLastBoolean = true;
 
 
             //objectCanBePlaced = false;
@@ -191,7 +197,8 @@ public class Tile : MonoBehaviour
 
     }
 
-
+    public bool powderObjectLastBoolean;
+    public bool powderObjectLastBoolean2;
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -213,11 +220,21 @@ public class Tile : MonoBehaviour
                   objectCanBePlaced = true;
 
               }*/
-        if (other.tag == "Collider" || other.tag == "Powder")
+        if (other.tag == "Collider" && other.tag == "Powder")
         {
             objectCanBePlaced = true;
 
         }
+        if (other.tag == "Powder")
+        {
+            //powderObjectLastBoolean = false;
+
+        }
+       /* if (controller.test == false)
+        {
+            powderObjectLastBoolean2 = false;
+
+        }*/
     }
 
 
@@ -236,10 +253,20 @@ public class Tile : MonoBehaviour
                         objectCanBePlaced = true;
 
             }*/
-        if (other.tag == "Collider" || other.tag == "Powder")
+        if (other.tag == "Collider" && other.tag == "Powder")
         {
             objectCanBePlaced = true;
 
         }
+        if (other.tag == "Powder")
+        {
+            //powderObjectLastBoolean = true;
+
+        }
+     /*   if (controller.test == true)
+        {
+            powderObjectLastBoolean2 = true;
+
+        }*/
     }
 }

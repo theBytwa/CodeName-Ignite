@@ -16,6 +16,7 @@ public class Controller : MonoBehaviour
     private Rigidbody2D rb;
     public GridManager gridManager;
     public bool powderObjectCanComeNear;
+    public bool test;
 
 
 
@@ -28,6 +29,7 @@ public class Controller : MonoBehaviour
     {
         //rb = gameObject.AddComponent<Rigidbody2D>();
         powderObjectCanComeNear = false;
+       
 
         gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
         //tile = GameObject.FindGameObjectsWithTag("Tile").
@@ -73,7 +75,7 @@ public class Controller : MonoBehaviour
             other.gameObject.GetComponent<Collider2D>().enabled = true;
             powderObjectCanComeNear = true;
 
-
+            
         }
         if (other.gameObject.tag == "Tile")
         {
@@ -82,8 +84,16 @@ public class Controller : MonoBehaviour
             Debug.Log("collision");
             Debug.Log(other);
             other.GetComponent<Tile>().powderCanBePlacedOn = true;
+            other.GetComponent<Tile>().powderObjectLastBoolean = true;
+
 
         }
+        /* if (other.gameObject.tag == "Tile")
+         {
+             test = true;
+
+
+         }*/
 
 
 
@@ -100,11 +110,19 @@ public class Controller : MonoBehaviour
         {
             other.GetComponent<Tile>().objectCanBePlaced = true;
             other.GetComponent<Tile>().objectCollider2D.enabled = true;
+            other.GetComponent<Tile>().powderObjectLastBoolean = false;
+
+
             //other.GetComponent<Tile>().powderCanBePlacedOn = false;
 
 
 
         }
+        /*  if (other.gameObject.tag == "Tile")
+          {
+              test = false;
+
+          }*/
     }
   
     public void FindAllPowdersAndChangeTheBlocks()
